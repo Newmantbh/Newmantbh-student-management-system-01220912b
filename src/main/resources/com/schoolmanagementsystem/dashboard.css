@@ -1,0 +1,24 @@
+.root{
+    -fx-background-color: #FFAE00;
+    -fx-background-image: url("com/schoolmanagementsystem/background.jpg");
+    -fx-background-repeat: stretch; /* Stretch the image to fill the background */
+    -fx-background-size: cover;     /* Cover the entire background area */
+    -fx-background-position: center center;
+}
+.label{
+    -fx-alignment:center;
+    -fx-text-fill: white;
+}
+#studentsbtn,#reportbtn,#importbtn,#exportbtn,#settingsbtn{
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-background-radius: 50px;
+
+    -fx-text-fill: white;
+    -fx-font-size:15;
+}
+#totalstudentslbl,#activestudentslbl,#inactivestudentslbl,#avggpalbl{
+    -fx-text-fill: white;
+}
+#lowstack,#btstack{
+
+}

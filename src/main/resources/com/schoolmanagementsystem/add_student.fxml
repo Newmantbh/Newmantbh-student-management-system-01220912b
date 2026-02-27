@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="371.0" prefWidth="260.0" spacing="15" style="-fx-padding: 20; -fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolmanagementsystem.ui.AddStudentController">
+
+    <Label fx:id="headerLabel" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Register New Student" />
+
+    <GridPane hgap="10" prefHeight="237.0" prefWidth="139.0" vgap="10">
+        <Label text="Student ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="idField" promptText="e.g. 012345678B" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Programme:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ComboBox fx:id="programmeCombo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Level:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <ComboBox fx:id="levelCombo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="GPA:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="gpaField" promptText="0.0 - 5.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="emailField" promptText="student@mail.com" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+        <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <TextField fx:id="phoneField" promptText="10 digits" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 10 0 0 0;">
+        <Button onAction="#handleCancel" style="-fx-background-color: #95a5a6; -fx-text-fill: white;" text="Cancel" />
+        <Button onAction="#handleSave" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;" text="Save Student" />
+    </HBox>
+</VBox>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500.0" prefWidth="800.0" stylesheets="@Report.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.schoolmanagementsystem.ui.ReportController">
+
+    <top>
+        <Label fx:id="TitleName" prefHeight="63.0" prefWidth="798.0" style="-fx-font-size: 20px; -fx-padding: 10; -fx-font-weight: bold;" text="Report Dashboard" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <font>
+            <Font name="French Script MT" size="23.0" />
+         </font></Label>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabs" prefHeight="437.0" prefWidth="653.0" tabClosingPolicy="UNAVAILABLE">
+            <Tab fx:id="topPerf" text="Top Performers">
+                <VBox prefHeight="400.0" prefWidth="801.0" spacing="10" style="-fx-padding: 10;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="Filter By:" />
+                        <ComboBox fx:id="progFilter" promptText="All Programmes" />
+                        <ComboBox fx:id="levelFilter" promptText="All Levels" />
+                        <Button onAction="#loadTopPerformers" text="Apply Filter" />
+                    </HBox>
+                    <TableView fx:id="topTable" prefHeight="352.0" prefWidth="659.0" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="rankCol" prefWidth="50" text="Rank" />
+                            <TableColumn prefWidth="200" text="Name">
+                                <cellValueFactory><PropertyValueFactory property="fullName" /></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="80" text="GPA">
+                                <cellValueFactory><PropertyValueFactory property="gpa" /></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="200" text="Programme">
+                                <cellValueFactory><PropertyValueFactory property="programme" /></cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab fx:id="Atrisk" text="At Risk Students">
+                <VBox spacing="10" style="-fx-padding: 10;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="GPA Threshold: &lt;" />
+                        <TextField fx:id="thresholdField" prefWidth="60" text="2.0" />
+                        <Button onAction="#loadAtRisk" text="Update" />
+                    </HBox>
+                    <TableView fx:id="riskTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn prefWidth="100" text="ID">
+                                <cellValueFactory><PropertyValueFactory property="studentId" /></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="200" text="Name">
+                                <cellValueFactory><PropertyValueFactory property="fullName" /></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="80" style="-fx-text-fill: red;" text="GPA">
+                                <cellValueFactory><PropertyValueFactory property="gpa" /></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="200" text="Email">
+                                <cellValueFactory><PropertyValueFactory property="email" /></cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="GPA Distribution">
+                <VBox alignment="CENTER" style="-fx-padding: 10;">
+                    <BarChart fx:id="gpaChart" title="Student GPA Distribution">
+                        <xAxis><CategoryAxis label="GPA Range" /></xAxis>
+                        <yAxis><NumberAxis label="Number of Students" /></yAxis>
+                    </BarChart>
+                </VBox>
+            </Tab>
+
+            <Tab text="Programme Summary">
+                <TableView fx:id="summaryTable" style="-fx-padding: 10;">
+                    <columns>
+                        <TableColumn prefWidth="300" text="Programme">
+                            <cellValueFactory><PropertyValueFactory property="programme" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="150" text="Total Students">
+                            <cellValueFactory><PropertyValueFactory property="totalStudents" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="150" text="Average GPA">
+                            <cellValueFactory><PropertyValueFactory property="averageGpa" /></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </Tab>
+        </TabPane>
+    </center>
+   <left>
+      <Button fx:id="homebtn" mnemonicParsing="false" onAction="#homebtn" prefHeight="32.0" prefWidth="120.0" text="Home" BorderPane.alignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="HOME" size="20" />
+         </graphic>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
+</BorderPane>

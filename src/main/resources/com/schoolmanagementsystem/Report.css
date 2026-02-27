@@ -1,0 +1,21 @@
+.root{
+
+}
+#TitleName{
+    -fx-text-fill: white;
+ -fx-background-color: #FFAE00;
+}
+#Atrisk{
+    -fx-background-color: tomato;
+    -fx-text-fill: white;
+}
+#topPerf{
+    -fx-background-color: lightgreen;
+    -fx-text-fill: white;
+}
+#homebtn{
+    -fx-background-radius: 5px;
+}
+#tabs{
+
+}
